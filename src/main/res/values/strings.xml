@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Practica21</string>
+    <string name="btnAgregar">Agregar</string>
+    <string name="lblResultado">Resultado:</string>
+</resources>
