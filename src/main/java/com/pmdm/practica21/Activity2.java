@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 public class Activity2 extends AppCompatActivity {
@@ -15,12 +14,11 @@ public class Activity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
-        suma = getIntent().getStringExtra("agregar");
-        Log.i("Activity2", suma);
-        actualizarFragment(suma);
+        actualizarFragment();
     }
 
-    public void actualizarFragment(String suma){
+    public void actualizarFragment(){
+        suma = getIntent().getStringExtra("agregar");
         Bundle bundle = new Bundle();
         bundle.putString("agregar", suma);
         Fragment2 frag2 = new Fragment2();

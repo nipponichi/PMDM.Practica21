@@ -46,32 +46,10 @@ public class Fragment1 extends Fragment {
         btnAgr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    portraitView();
-                } else {
-                    landScapeView();
-                }
+
             }
+
         });
     }
-
-    private void portraitView(){
-        actualizarContador();
-        Intent i = new Intent(getContext(),Activity2.class);
-        startActivity(i.putExtra("agregar",String.valueOf(suma)));
-    }
-
-    private void landScapeView(){
-        actualizarContador();
-    }
-    private int sumar() {
-        return suma++;
-    }
-
-    public void actualizarContador(){
-        sumar();
-        Bundle bundle = new Bundle();
-        bundle.putString("agregar", String.valueOf(suma));
-        getParentFragmentManager().setFragmentResult("suma",bundle);
-    }
 }
+
