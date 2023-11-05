@@ -34,15 +34,6 @@ public class Fragment2 extends Fragment {
         if (bundle != null) {
             String suma = bundle.getString("agregar", "0");
             actualizarValorSuma(suma);
-        } {
-            getParentFragmentManager().setFragmentResultListener("suma", this, new FragmentResultListener() {
-                @Override
-                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                    String agregar = result.getString("agregar");
-                    Toast.makeText(getContext(),"fragment2 Agregar "+agregar, Toast.LENGTH_LONG).show();
-                    tv1.setText(agregar);
-                }
-            });
         }
         return view;
     }

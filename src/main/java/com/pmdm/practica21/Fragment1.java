@@ -1,14 +1,12 @@
 package com.pmdm.practica21;
 
-
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +15,7 @@ import android.widget.Button;
 public class Fragment1 extends Fragment {
 
     private Button btnAgr;
-    private int suma;
-
-    public void setSuma(int suma) {
-        this.suma = suma;
-    }
+    private OnBtnClickedListener callback;
 
 
     public Fragment1() {
@@ -46,10 +40,22 @@ public class Fragment1 extends Fragment {
         btnAgr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                onBtnAddClick();
             }
-
         });
     }
-}
 
+    public void setOnBtnAddClickListener(OnBtnClickedListener callback){
+        this.callback = callback;
+    }
+
+    private void onBtnAddClick(){
+        Log.i("Fragment1", "boton pulsado");
+        callback.onBtnClicked();
+    }
+
+    public interface OnBtnClickedListener {
+        public void onBtnClicked();
+    }
+
+}
