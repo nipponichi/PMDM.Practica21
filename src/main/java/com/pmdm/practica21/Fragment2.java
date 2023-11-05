@@ -1,17 +1,11 @@
 package com.pmdm.practica21;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Fragment2 extends Fragment {
 
@@ -30,13 +24,21 @@ public class Fragment2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment2, container, false);
         tv1 = view.findViewById(R.id.txtResultado);
 
+        //Recibimos los parámetros desde el objeto bundle
         Bundle bundle = getArguments();
+
+        /*
+        Si bundle tiene valor utiliza la clave "agregar" para añadir el valor del String proveniente
+        desde MainActivity o Activity2
+         */
         if (bundle != null) {
             String suma = bundle.getString("agregar", "0");
             actualizarValorSuma(suma);
         }
         return view;
     }
+
+    //Pasamos el valor a txtResultado de la vista de Fragment2 a traves del objeto tv1
     public void actualizarValorSuma(String suma) {
         tv1.setText(String.valueOf(suma));
     }
